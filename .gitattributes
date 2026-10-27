@@ -1,8 +1,8 @@
 # 换行与编码规则
 #
-# 背景：本仓库在 Windows 上开发（core.autocrlf=true 会把工作区转成 CRLF），
-# 但构建在 Linux（GitHub Actions / VitePress）上跑。若不显式声明，
-# 换行行为就取决于每个开发者的 core.autocrlf 设置 —— 在 CI 里会产生假 diff。
+# 背景：本仓库在 Windows 上开发、在 Linux（GitHub Actions / VitePress）上构建。
+# 若不显式声明，换行行为就取决于每个开发者的 core.autocrlf 设置 —— 在 CI 里会产生假 diff。
+# 本仓库已设置 core.autocrlf=input；下面的规则优先级更高，对没有该设置的机器同样生效。
 #
 # 规则：仓库里一律存 LF，工作区也检出一律为 LF。
 # 现代编辑器（VS Code / Vim / JetBrains）都原生支持 LF，Windows 上无需 CRLF。
