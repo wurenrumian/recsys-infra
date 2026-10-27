@@ -1,0 +1,509 @@
+/**
+ * 黄白配色主题
+ *
+ * 设计原则：
+ * - 底色是「暖白」，不是纯白 —— 纯白配黄会刺眼，暖白（带一点奶油感）更耐看
+ * - 黄色只做两件事：大面积底色（hero / 侧栏高亮）和强强调（按钮、mark）
+ * - 文字与链接用深琥珀/深棕，不用亮黄 —— 亮黄配白底对比度不足，读不清
+ * - 深色模式保留，走「夜间琥珀」：深棕底 + 亮黄字
+ */
+
+/* ========== 浅色模式（主设计） ========== */
+:root {
+  /* 品牌色：亮黄做底，深琥珀做文字 */
+  --vp-c-brand-1: #8a5a00;          /* 链接 / 强调文字，深琥珀，白底上对比足够 */
+  --vp-c-brand-2: #a96f00;          /* hover */
+  --vp-c-brand-3: #ffd60a;          /* 亮黄，用于按钮底色 */
+  --vp-c-brand-soft: #fff3c4;       /* 柔和黄，用于 badge / 高亮底 */
+
+  /* 背景层级：暖白 → 浅黄 */
+  --vp-c-bg: #fffdf6;
+  --vp-c-bg-alt: #fffaeb;
+  --vp-c-bg-soft: #fff8e1;
+  --vp-c-bg-elv: #ffffff;
+
+  /* 文字：不用纯黑，用带一点棕的深色，和暖底更协调 */
+  --vp-c-text-1: #241a05;
+  --vp-c-text-2: #5a4a2a;
+  --vp-c-text-3: #7a6a47;
+
+  /* 分隔线与边框：淡黄棕 */
+  --vp-c-divider: #f0e2bd;
+  --vp-c-border: #e8d6ab;
+  --vp-c-gutter: #f5ebcf;
+
+  /* 自定义块底 */
+  --vp-custom-block-tip-border: #ffd60a;
+  --vp-custom-block-tip-bg: #fff8e1;
+  --vp-custom-block-tip-text: #241a05;
+
+  --vp-custom-block-warning-border: #e8a300;
+  --vp-custom-block-warning-bg: #fff4d6;
+  --vp-custom-block-warning-text: #5a3d00;
+
+  --vp-custom-block-danger-border: #c2410c;
+  --vp-custom-block-danger-bg: #fff1e8;
+
+  /* 首页 hero 渐变：奶油白过渡到浅黄 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #8a5a00 10%, #b07d00 45%, #d99b00 80%);
+
+  --vp-home-hero-image-background-image: radial-gradient(
+    circle at 50% 40%,
+    rgba(255, 214, 10, 0.55) 0%,
+    rgba(255, 243, 196, 0.35) 45%,
+    transparent 70%
+  );
+  --vp-home-hero-image-filter: blur(56px);
+
+  /* 按钮 */
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #241a05;
+  --vp-button-brand-bg: #ffd60a;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #241a05;
+  --vp-button-brand-hover-bg: #ffc300;
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #241a05;
+  --vp-button-brand-active-bg: #f0b400;
+
+  --vp-button-alt-border: #e8d6ab;
+  --vp-button-alt-text: #5a4a2a;
+  --vp-button-alt-bg: #fffaeb;
+  --vp-button-alt-hover-border: #d9c48e;
+  --vp-button-alt-hover-text: #241a05;
+  --vp-button-alt-hover-bg: #fff3c4;
+}
+
+/* ========== 深色模式：夜间琥珀 ========== */
+.dark {
+  --vp-c-bg: #1a1608;
+  --vp-c-bg-alt: #14110a;
+  --vp-c-bg-soft: #241f0e;
+  --vp-c-bg-elv: #241f0e;
+
+  --vp-c-brand-1: #ffd60a;
+  --vp-c-brand-2: #ffe066;
+  --vp-c-brand-3: #e8b800;
+  --vp-c-brand-soft: rgba(255, 214, 10, 0.16);
+
+  --vp-c-text-1: #fdf6e3;
+  --vp-c-text-2: #d6c9a8;
+  --vp-c-text-3: #9c8f70;
+
+  --vp-c-divider: #3a3218;
+  --vp-c-border: #4a3f1f;
+  --vp-c-gutter: #0f0d06;
+
+  --vp-custom-block-tip-border: #e8b800;
+  --vp-custom-block-tip-bg: rgba(255, 214, 10, 0.1);
+  --vp-custom-block-tip-text: #fdf6e3;
+
+  --vp-custom-block-warning-border: #ffd60a;
+  --vp-custom-block-warning-bg: rgba(255, 214, 10, 0.08);
+  --vp-custom-block-warning-text: #ffe9a8;
+
+  --vp-custom-block-danger-border: #f97316;
+  --vp-custom-block-danger-bg: rgba(249, 115, 22, 0.12);
+
+  --vp-home-hero-name-background: linear-gradient(120deg, #ffe066 10%, #ffd60a 55%, #f5b800 90%);
+
+  --vp-home-hero-image-background-image: radial-gradient(
+    circle at 50% 40%,
+    rgba(255, 214, 10, 0.35) 0%,
+    rgba(255, 214, 10, 0.12) 45%,
+    transparent 70%
+  );
+
+  --vp-button-brand-text: #1a1608;
+  --vp-button-brand-bg: #ffd60a;
+  --vp-button-brand-hover-text: #1a1608;
+  --vp-button-brand-hover-bg: #ffe066;
+  --vp-button-brand-active-bg: #e8b800;
+
+  --vp-button-alt-border: #4a3f1f;
+  --vp-button-alt-text: #d6c9a8;
+  --vp-button-alt-bg: #241f0e;
+  --vp-button-alt-hover-border: #6b5a2a;
+  --vp-button-alt-hover-text: #fdf6e3;
+  --vp-button-alt-hover-bg: #2e2712;
+}
+
+/* ========== 导航与侧栏：用淡黄区分层级 ========== */
+
+/* 顶部导航：暖白底 + 细分隔线 */
+.VPNav .VPNavBar {
+  background-color: rgba(255, 253, 246, 0.92) !important;
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.dark .VPNav .VPNavBar {
+  background-color: rgba(26, 22, 8, 0.92) !important;
+}
+
+/* 站点名：用深琥珀，不用亮黄（亮黄在暖白上偏浅） */
+.VPNavBarTitle .title {
+  color: var(--vp-c-brand-1);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+/* 当前页导航项：黄色下划线 */
+.VPNavBarMenuLink.active,
+.VPNavBarMenuLink:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* 侧栏：背景比正文略暖，层级用色差而不是加线 */
+.VPSidebar {
+  background-color: var(--vp-c-bg-alt) !important;
+  border-right: 1px solid var(--vp-c-divider);
+}
+
+/* 侧栏分组标题 */
+.VPSidebarItem.level-0 > .item > .text {
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+}
+
+/* 侧栏当前项：黄色左边条 + 淡黄底 */
+.VPSidebarItem.is-active > .item .link > .text {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+
+.VPSidebarItem.is-active > .item {
+  background-color: var(--vp-c-brand-soft);
+  border-radius: 6px;
+  margin-left: -6px;
+  padding-left: 6px;
+  box-shadow: inset 3px 0 0 var(--vp-c-brand-3);
+}
+
+.dark .VPSidebarItem.is-active > .item {
+  background-color: rgba(255, 214, 10, 0.1);
+}
+
+/* ========== 正文排版 ========== */
+
+/* 正文一级标题：加一条黄色短横，代替分割线 */
+.vp-doc h1 {
+  position: relative;
+  padding-bottom: 0.6rem;
+  border-bottom: none;
+}
+
+.vp-doc h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3.5rem;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #ffd60a, #ffe9a8);
+}
+
+/* 二级标题左侧小黄条 */
+.vp-doc h2 {
+  border-top: none;
+  margin-top: 2.6rem;
+  padding-top: 0;
+}
+
+.vp-doc h2::before {
+  content: '';
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-right: 0.5rem;
+  border-radius: 2px;
+  background-color: #ffd60a;
+  vertical-align: middle;
+}
+
+/* 链接：深琥珀 + 黄色下划线，hover 时下划线加粗 */
+.vp-doc a {
+  color: var(--vp-c-brand-1);
+  text-decoration-color: #ffd60a;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  font-weight: 500;
+}
+
+.vp-doc a:hover {
+  text-decoration-color: var(--vp-c-brand-1);
+  text-decoration-thickness: 2px;
+}
+
+/* 行内代码：淡黄底 + 深棕字 */
+.vp-doc :not(pre) > code {
+  background-color: var(--vp-c-brand-soft);
+  color: #6b4400;
+  padding: 0.15em 0.38em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.dark .vp-doc :not(pre) > code {
+  background-color: rgba(255, 214, 10, 0.14);
+  color: #ffe066;
+}
+
+/* 代码块：浅色下用暖白，避免死板的灰 */
+.vp-doc div[class*='language-'] {
+  background-color: #fffdf4;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+}
+
+.dark .vp-doc div[class*='language-'] {
+  background-color: #0f0d06;
+  border-color: #3a3218;
+}
+
+/* 引用块：黄色左边条 */
+.vp-doc blockquote {
+  border-left: 3px solid #ffd60a;
+  background-color: var(--vp-c-bg-soft);
+  padding: 0.6rem 1rem;
+  border-radius: 0 6px 6px 0;
+  color: var(--vp-c-text-1);
+}
+
+.vp-doc blockquote > p {
+  color: var(--vp-c-text-1);
+  font-size: inherit;
+}
+
+/* 表格：表头淡黄，斑马纹极淡 */
+.vp-doc th {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-text-1);
+  font-weight: 650;
+}
+
+.dark .vp-doc th {
+  background-color: rgba(255, 214, 10, 0.12);
+}
+
+.vp-doc tr:nth-child(2n) {
+  background-color: var(--vp-c-bg-alt);
+}
+
+.vp-doc table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.vp-doc table td,
+.vp-doc table th {
+  white-space: normal;
+  min-width: 6rem;
+}
+
+/* 强调：mark 用亮黄底 */
+.vp-doc mark {
+  background-color: #ffe066;
+  color: #241a05;
+  padding: 0.05em 0.25em;
+  border-radius: 3px;
+}
+
+.dark .vp-doc mark {
+  background-color: rgba(255, 214, 10, 0.3);
+  color: #fdf6e3;
+}
+
+/* ========== 教程自定义块 ========== */
+
+/* 「算例」：黄底 + 左侧实心黄条，和论述区分开 */
+.example {
+  border-left: 4px solid #ffd60a;
+  background-color: #fffaea;
+  padding: 0.9rem 1.1rem;
+  margin: 1.4rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.dark .example {
+  background-color: rgba(255, 214, 10, 0.06);
+}
+
+.example > :first-child {
+  margin-top: 0;
+}
+
+.example > :last-child {
+  margin-bottom: 0;
+}
+
+/* 「论文出处」：弱化，不抢正文 */
+.cite {
+  font-size: 0.875rem;
+  color: var(--vp-c-text-2);
+  border-left: 2px solid var(--vp-c-border);
+  padding-left: 0.75rem;
+  margin: 1.6rem 0;
+}
+
+.cite > :first-child {
+  margin-top: 0;
+}
+
+.cite > :last-child {
+  margin-bottom: 0;
+}
+
+/* 「小结」：淡黄卡片，顶部一条渐变黄 */
+.takeaway {
+  position: relative;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin: 1.8rem 0;
+  background: linear-gradient(180deg, #fffaea 0%, var(--vp-c-bg) 100%);
+  overflow: hidden;
+}
+
+.takeaway::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffd60a, #ffe9a8 60%, transparent);
+}
+
+.dark .takeaway {
+  background: linear-gradient(180deg, rgba(255, 214, 10, 0.08) 0%, var(--vp-c-bg) 100%);
+}
+
+.takeaway > :first-child {
+  margin-top: 0;
+}
+
+.takeaway > :last-child {
+  margin-bottom: 0;
+}
+
+/* ========== 首页 ========== */
+
+.VPHero .name {
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.VPHero .text {
+  color: var(--vp-c-text-1);
+  font-weight: 650;
+}
+
+.VPHero .tagline {
+  color: var(--vp-c-text-2);
+}
+
+/* 首页特性卡片：hover 时黄边 */
+.VPFeature {
+  background-color: var(--vp-c-bg-alt) !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.VPFeature:hover {
+  border-color: #ffd60a !important;
+  transform: translateY(-2px);
+}
+
+.VPFeature .icon {
+  background-color: var(--vp-c-brand-soft) !important;
+}
+
+.VPFeature .title {
+  color: var(--vp-c-text-1);
+}
+
+/* ========== 搜索框 ========== */
+
+.DocSearch-Button {
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-border);
+  background-color: var(--vp-c-bg-alt);
+}
+
+/* ========== 其他细节 ========== */
+
+/* 页面底部上一页/下一页：hover 黄色 */
+.pager-link:hover {
+  border-color: var(--vp-c-brand-3);
+}
+
+.pager-link .desc {
+  color: var(--vp-c-brand-1);
+}
+
+/* 右侧目录当前项 */
+.VPDocOutlineItem a:hover,
+.VPDocOutlineItem a.active {
+  color: var(--vp-c-brand-1);
+}
+
+/* 滚动条（Webkit） */
+::-webkit-scrollbar-thumb {
+  background-color: var(--vp-c-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d9c48e;
+}
+
+/* ========== 响应式细节 ========== */
+
+/* 窄屏：算例块与小结块收紧内边距，避免挤占正文宽度 */
+@media (max-width: 640px) {
+  .example,
+  .takeaway {
+    padding: 0.75rem 0.85rem;
+    margin: 1.1rem 0;
+    border-radius: 6px;
+  }
+
+  .cite {
+    padding-left: 0.6rem;
+    font-size: 0.84rem;
+  }
+
+  .vp-doc h1::after {
+    width: 2.5rem;
+    height: 3px;
+  }
+
+  /* 表格字号略小，减少横向滚动距离 */
+  .vp-doc table td,
+  .vp-doc table th {
+    font-size: 0.86rem;
+    min-width: 5rem;
+  }
+}
+
+/* 窄屏下侧栏当前项的内缩，避免贴边 */
+@media (max-width: 960px) {
+  .VPSidebarItem.is-active > .item {
+    margin-left: 0;
+    padding-left: 4px;
+    box-shadow: inset 3px 0 0 #ffd60a;
+  }
+}
+
+/* 尊重"减少动效"偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .VPFeature,
+  .VPFeature:hover {
+    transition: none;
+    transform: none;
+  }
+}
