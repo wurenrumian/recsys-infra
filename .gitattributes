@@ -1,0 +1,40 @@
+# 换行与编码规则
+#
+# 背景：本仓库在 Windows 上开发（core.autocrlf=true 会把工作区转成 CRLF），
+# 但构建在 Linux（GitHub Actions / VitePress）上跑。若不显式声明，
+# 换行行为就取决于每个开发者的 core.autocrlf 设置 —— 在 CI 里会产生假 diff。
+#
+# 规则：仓库里一律存 LF，工作区也检出一律为 LF。
+# 现代编辑器（VS Code / Vim / JetBrains）都原生支持 LF，Windows 上无需 CRLF。
+
+# 默认：自动识别文本，统一 LF
+* text=auto eol=lf
+
+# 明确声明为文本的类型（避免 git 误判，也起自文档作用）
+*.md      text eol=lf
+*.mdx     text eol=lf
+*.mts     text eol=lf
+*.ts      text eol=lf
+*.js      text eol=lf
+*.mjs     text eol=lf
+*.json    text eol=lf
+*.css     text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.html    text eol=lf
+*.svg     text eol=lf
+
+# 二进制：不做任何换行转换（文档站以后会加图片）
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.webp    binary
+*.ico     binary
+*.woff    binary
+*.woff2   binary
+*.pdf     binary
+*.zip     binary
+
+# npm 的 lockfile 由 npm 生成，不要手工改换行
+package-lock.json  text eol=lf -diff
