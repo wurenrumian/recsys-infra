@@ -10,6 +10,12 @@
  * 这个表是本教程可验证性的唯一来源。改教程数字时同步改这里。
  */
 export const CLAIMS = [
+  // ── 系统骨架（00-skeleton）──
+  { chapter: '00-skeleton', paper: 'A-10', needle: '75%' },
+  { chapter: '00-skeleton', paper: 'B-01', needle: '94%' },
+  { chapter: '00-skeleton', paper: 'C-02', needle: 'M-FALCON' },
+  { chapter: '00-skeleton', paper: 'C-09', needle: '无 SLO' },
+
   // ── 第 1 章：两个系统 ──
   { chapter: '01-why-different', paper: 'A-10', needle: '1% 嵌入承担 >92% 访问' },
   { chapter: '01-why-different', paper: 'A-10', needle: '0.1% 承担近 90%' },

@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { peleMermaid } from './pele-mermaid'
 
 export default defineConfig({
   title: '推荐系统与训练基建',
@@ -10,6 +11,8 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
     theme: { light: 'github-light', dark: 'github-dark' },
+    // 构建时把 ```mermaid 渲染成静态 SVG（Pele），不向客户端发渲染器。
+    config: (md) => md.use(peleMermaid),
   },
 
   themeConfig: {
@@ -27,6 +30,7 @@ export default defineConfig({
           text: '开始',
           items: [
             { text: '课程地图', link: '/guide/' },
+            { text: '系统骨架：一次迭代与一次请求', link: '/guide/00-skeleton' },
             { text: '贯穿全教程的算例', link: '/guide/running-example' },
           ],
         },

@@ -434,6 +434,167 @@
   background-color: var(--vp-c-bg-alt);
 }
 
+/* ========== 时序图与时间轴 ========== */
+
+/* 时序图：Pele 在构建时渲染成静态 SVG，颜色全部走它暴露的 CSS 变量，
+   所以深色模式不需要重新渲染一张图 */
+.mermaid-pele {
+  --pele-bg: #fffdf6;
+  --pele-fg: #241a05;
+  --pele-muted: #5a4a2a;
+  --pele-line: #a96f00;
+  --pele-surface: #fff3c4;
+  --pele-surface-alt: #fff8e1;
+  --pele-border: #e8a300;
+  --pele-accent: #8a5a00;
+  margin: 1.6rem 0;
+  padding: 1rem 0.9rem;
+  background: #fffdf6;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.dark .mermaid-pele {
+  --pele-bg: #1a1608;
+  --pele-fg: #fdf6e3;
+  --pele-muted: #d6c9a8;
+  --pele-line: #ffd60a;
+  --pele-surface: #2e2712;
+  --pele-surface-alt: #241f0e;
+  --pele-border: #6b5a2a;
+  --pele-accent: #ffd60a;
+  background: #1a1608;
+}
+
+.mermaid-pele svg {
+  display: block;
+  margin: 0 auto;
+}
+
+/* 窄屏不把图压到看不清：保持一个最小的可读宽度，让容器横向滚动 */
+@media (max-width: 720px) {
+  .mermaid-pele {
+    padding: 0.75rem 0.6rem;
+  }
+
+  .mermaid-pele svg {
+    min-width: 720px;
+  }
+}
+
+/* 训练迭代的时间轴：每行一个时段，条形长度按示意耗时等比 */
+.timeline {
+  margin: 1.2rem 0 0.5rem;
+  padding: 0.9rem 1rem;
+  background: var(--vp-c-bg-alt);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+}
+
+.tl-row {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr) 6.5rem;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.28rem 0;
+}
+
+.tl-label {
+  font-size: 0.82rem;
+  color: var(--vp-c-text-1);
+  font-weight: 550;
+  white-space: nowrap;
+}
+
+.tl-track {
+  display: block;
+  height: 0.7rem;
+  background: var(--vp-c-gutter);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.tl-bar {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.tl-load {
+  background: #d9c48e;
+}
+
+.tl-net {
+  background: linear-gradient(90deg, #ffd60a, #f5b800);
+}
+
+.tl-mem {
+  background: #e8d6ab;
+}
+
+.tl-compute {
+  background: linear-gradient(90deg, #f5b800, #e8a300);
+}
+
+.tl-note {
+  font-size: 0.76rem;
+  color: var(--vp-c-text-2);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.timeline-caption {
+  font-size: 0.8rem;
+  color: var(--vp-c-text-2);
+  margin: 0 0 1.6rem;
+  padding-left: 0.1rem;
+}
+
+@media (max-width: 640px) {
+  .timeline {
+    padding: 0.75rem 0.8rem;
+  }
+
+  .tl-row {
+    grid-template-columns: 6.4rem minmax(0, 1fr) 5rem;
+    gap: 0.45rem;
+  }
+
+  .tl-label {
+    font-size: 0.74rem;
+    white-space: normal;
+  }
+
+  .tl-note {
+    font-size: 0.7rem;
+  }
+}
+
+/* 「在骨架上」：每章开头的定位条，把本章挂回系统骨架 */
+.skeleton-anchor {
+  margin: 1rem 0 1.6rem;
+  padding: 0.55rem 0.85rem;
+  border-left: 3px solid var(--vp-c-brand-3);
+  background: var(--vp-c-bg-alt);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.88rem;
+  color: var(--vp-c-text-2);
+}
+
+.skeleton-anchor > :first-child {
+  margin-top: 0;
+}
+
+.skeleton-anchor > :last-child {
+  margin-bottom: 0;
+}
+
+.skeleton-anchor strong {
+  color: var(--vp-c-brand-1);
+  font-weight: 650;
+}
+
 /* ========== 其他细节 ========== */
 
 /* 页面底部上一页/下一页：hover 黄色 */

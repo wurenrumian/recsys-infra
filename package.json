@@ -10,6 +10,7 @@
     "preview": "vitepress preview docs"
   },
   "devDependencies": {
+    "pele": "^1.13.0",
     "vitepress": "^1.6.4"
   }
 }
