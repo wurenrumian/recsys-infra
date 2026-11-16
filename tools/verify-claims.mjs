@@ -20,7 +20,12 @@ import { CLAIMS } from './claims.mjs'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(__dirname, '..')
 const PAPERS = join(ROOT, 'docs', 'papers', 'nestpipe')
-const GUIDE = join(ROOT, 'docs', 'guide')
+// 教程 + 两个深潜专栏都算「正文」，引用的论文编号都要真实存在
+const CONTENT_DIRS = [
+  join(ROOT, 'docs', 'guide'),
+  join(ROOT, 'docs', 'deep'),
+  join(ROOT, 'docs', 'network'),
+].filter((d) => existsSync(d))
 
 const quiet = process.argv.includes('--quiet')
 
@@ -67,11 +72,13 @@ for (const c of CLAIMS) {
   }
 }
 
-// 同时检查：教程章节里出现该论文编号时，文件确实存在
-const guideFiles = readdirSync(GUIDE).filter((n) => n.endsWith('.md'))
+// 同时检查：正文里出现该论文编号时，文件确实存在
+const guideFiles = CONTENT_DIRS.flatMap((d) =>
+  readdirSync(d).filter((n) => n.endsWith('.md')).map((n) => join(d, n)),
+)
 const cited = new Set()
-for (const f of guideFiles) {
-  const t = readFileSync(join(GUIDE, f), 'utf8')
+for (const file of guideFiles) {
+  const t = readFileSync(file, 'utf8')
   for (const m of t.matchAll(/\b([ABC])-(\d{2})\b/g)) {
     cited.add(`${m[1]}-${m[2]}`)
   }

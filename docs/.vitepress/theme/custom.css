@@ -595,6 +595,30 @@
   font-weight: 650;
 }
 
+/* 「深潜定位」：深潜 / 网络专栏每篇开头的定位条，用虚线与教程章节区分 */
+.deep-anchor {
+  margin: 1rem 0 1.6rem;
+  padding: 0.55rem 0.85rem;
+  border-left: 3px dashed var(--vp-c-brand-3);
+  background: var(--vp-c-bg-alt);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.88rem;
+  color: var(--vp-c-text-2);
+}
+
+.deep-anchor > :first-child {
+  margin-top: 0;
+}
+
+.deep-anchor > :last-child {
+  margin-bottom: 0;
+}
+
+.deep-anchor strong {
+  color: var(--vp-c-brand-1);
+  font-weight: 650;
+}
+
 /* ========== 其他细节 ========== */
 
 /* 页面底部上一页/下一页：hover 黄色 */

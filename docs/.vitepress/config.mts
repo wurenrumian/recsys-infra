@@ -20,6 +20,8 @@ export default defineConfig({
 
     nav: [
       { text: '教程', link: '/guide/', activeMatch: '/guide/' },
+      { text: '深潜', link: '/deep/', activeMatch: '/deep/' },
+      { text: '网络', link: '/network/', activeMatch: '/network/' },
       { text: '论文库', link: '/papers/nestpipe/', activeMatch: '/papers/' },
       { text: '术语表', link: '/glossary' },
     ],
@@ -70,6 +72,46 @@ export default defineConfig({
           items: [
             { text: '12. 怎么读一篇新的系统论文', link: '/guide/12-how-to-read' },
             { text: '13. 设计清单与决策表', link: '/guide/13-checklist' },
+          ],
+        },
+      ],
+
+      '/deep/': [
+        {
+          text: '深潜 · 教程给结论，这里给推导',
+          items: [
+            { text: '专栏导读', link: '/deep/' },
+          ],
+        },
+        {
+          text: '六篇推导',
+          items: [
+            { text: '1. gather/scatter 的 roofline', link: '/deep/01-gather-roofline' },
+            { text: '2. 切分的成本模型', link: '/deep/02-sharding-cost' },
+            { text: '3. 缓存命中与过期', link: '/deep/03-cache-staleness' },
+            { text: '4. 压缩的预算与帕累托', link: '/deep/04-compression-budget' },
+            { text: '5. 气泡与 staleness', link: '/deep/05-pipeline-bubble' },
+            { text: '6. 加速比的账本', link: '/deep/06-speedup-ledger' },
+          ],
+        },
+      ],
+
+      '/network/': [
+        {
+          text: '网络 · 通信与互联',
+          items: [
+            { text: '专栏导读', link: '/network/' },
+          ],
+        },
+        {
+          text: '六篇算账',
+          items: [
+            { text: '1. 互联的物理层与语义层', link: '/network/01-interconnect-layers' },
+            { text: '2. 集合通信的字节账本', link: '/network/02-collectives' },
+            { text: '3. all-to-all 的成本模型', link: '/network/03-all-to-all-cost' },
+            { text: '4. RDMA 与参数服务器', link: '/network/04-rdma-and-ps' },
+            { text: '5. 拓扑与尾延迟', link: '/network/05-topology-and-tail' },
+            { text: '6. 通信优化的盈亏平衡', link: '/network/06-breakeven' },
           ],
         },
       ],

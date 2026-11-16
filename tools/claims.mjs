@@ -130,4 +130,66 @@ export const CLAIMS = [
   { chapter: '13-checklist', paper: 'B-07', needle: '221' },
   { chapter: '13-checklist', paper: 'B-07', needle: '0.3%' },
   { chapter: '13-checklist', paper: 'A-03', needle: '1.57' },
+
+  // ── 深潜 1：gather roofline ──
+  { chapter: 'deep/01-gather-roofline', paper: 'A-16', needle: '47.50%' },
+  { chapter: 'deep/01-gather-roofline', paper: 'A-16', needle: '58.00%' },
+  { chapter: 'deep/01-gather-roofline', paper: 'A-16', needle: '0.88%' },
+  { chapter: 'deep/01-gather-roofline', paper: 'A-16', needle: '34.60%' },
+  { chapter: 'deep/01-gather-roofline', paper: 'A-16', needle: '55.10%' },
+  { chapter: 'deep/01-gather-roofline', paper: 'A-06', needle: '12.4 TB/s' },
+  { chapter: 'deep/01-gather-roofline', paper: 'A-06', needle: '156 TFLOPS' },
+  { chapter: 'deep/01-gather-roofline', paper: 'A-06', needle: '96TB' },
+  { chapter: 'deep/01-gather-roofline', paper: 'A-11', needle: '10%–30%' },
+
+  // ── 深潜 2：切分成本 ──
+  { chapter: 'deep/02-sharding-cost', paper: 'A-03', needle: '5.70' },
+  { chapter: 'deep/02-sharding-cost', paper: 'A-03', needle: '1.57' },
+  { chapter: 'deep/02-sharding-cost', paper: 'A-03', needle: '7×' },
+  { chapter: 'deep/02-sharding-cost', paper: 'A-03', needle: '4096' },
+  { chapter: 'deep/02-sharding-cost', paper: 'B-04', needle: '900 GB/s' },
+  { chapter: 'deep/02-sharding-cost', paper: 'B-05', needle: '88.6%' },
+  { chapter: 'deep/02-sharding-cost', paper: 'B-06', needle: '+23.8%' },
+  { chapter: 'deep/02-sharding-cost', paper: 'B-13', needle: '2.3×' },
+
+  // ── 深潜 3：缓存与过期 ──
+  { chapter: 'deep/03-cache-staleness', paper: 'A-10', needle: '92%' },
+  { chapter: 'deep/03-cache-staleness', paper: 'A-10', needle: '91%' },
+  { chapter: 'deep/03-cache-staleness', paper: 'A-10', needle: '82%' },
+  { chapter: 'deep/03-cache-staleness', paper: 'A-10', needle: '16,384' },
+  { chapter: 'deep/03-cache-staleness', paper: 'B-02', needle: '79.62' },
+  { chapter: 'deep/03-cache-staleness', paper: 'B-02', needle: '74.61' },
+  { chapter: 'deep/03-cache-staleness', paper: 'B-02', needle: '70.91' },
+  { chapter: 'deep/03-cache-staleness', paper: 'B-02', needle: '88%' },
+  { chapter: 'deep/03-cache-staleness', paper: 'A-11', needle: '>80%' },
+  { chapter: 'deep/03-cache-staleness', paper: 'A-11', needle: 'RAW-4' },
+  { chapter: 'deep/03-cache-staleness', paper: 'B-08', needle: '1.93×' },
+
+  // ── 深潜 4：压缩预算 ──
+  { chapter: 'deep/04-compression-budget', paper: 'B-03', needle: '3.94%' },
+  { chapter: 'deep/04-compression-budget', paper: 'B-07', needle: '221' },
+  { chapter: 'deep/04-compression-budget', paper: 'B-10', needle: '200×' },
+  { chapter: 'deep/04-compression-budget', paper: 'B-11', needle: '0.270 GB' },
+  { chapter: 'deep/04-compression-budget', paper: 'B-11', needle: '+0.148%' },
+  { chapter: 'deep/04-compression-budget', paper: 'B-12', needle: '35–60%' },
+  { chapter: 'deep/04-compression-budget', paper: 'A-13', needle: '38.5%' },
+
+  // ── 深潜 5：气泡与 staleness ──
+  { chapter: 'deep/05-pipeline-bubble', paper: 'C-08', needle: '1.57×' },
+  { chapter: 'deep/05-pipeline-bubble', paper: 'C-11', needle: '81.7%' },
+  { chapter: 'deep/05-pipeline-bubble', paper: 'C-11', needle: '5.81' },
+  { chapter: 'deep/05-pipeline-bubble', paper: 'C-11', needle: '1.27×' },
+  { chapter: 'deep/05-pipeline-bubble', paper: 'C-11', needle: '4.24×' },
+  { chapter: 'deep/05-pipeline-bubble', paper: 'C-11', needle: '54.3%' },
+  { chapter: 'deep/05-pipeline-bubble', paper: 'C-11', needle: '29.2%' },
+  { chapter: 'deep/05-pipeline-bubble', paper: 'C-09', needle: '2.73×' },
+
+  // ── 深潜 6：加速比账本 ──
+  { chapter: 'deep/06-speedup-ledger', paper: 'A-14', needle: '31.3%' },
+  { chapter: 'deep/06-speedup-ledger', paper: 'A-14', needle: '1.38×' },
+  { chapter: 'deep/06-speedup-ledger', paper: 'A-14', needle: '5.03%' },
+  { chapter: 'deep/06-speedup-ledger', paper: 'A-10', needle: '5.6×' },
+  { chapter: 'deep/06-speedup-ledger', paper: 'A-10', needle: '3.7×' },
+  { chapter: 'deep/06-speedup-ledger', paper: 'B-11', needle: '0.509 MB' },
+  { chapter: 'deep/06-speedup-ledger', paper: 'B-11', needle: '61ms' },
 ]
